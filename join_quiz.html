@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Quiz</title>
+    <!-- Include Bootstrap CSS from a CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for button styling and background image */
+        body {
+            background-image: url(https://wallpaperaccess.com/full/2384075.jpg); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-position: center; 
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background to the container */
+            border-radius: 10px; /* Rounded corners for the container */
+            padding: 20px;
+        }
+
+        .form-group {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1>Join a Quiz</h1>
+        <form id="joinForm">
+            <div class="form-group">
+                <input type="number" class="form-control" id="enterCode" placeholder="Enter Code" min="0" max="999999" required>
+                <small id="codeHelp" class="form-text text-danger d-none">Please enter a correct 6-digit code.</small>
+            </div>
+            <button type="submit" class="btn btn-primary" id="joinButton" disabled>Join</button>
+        </form>
+    </div>
+
+    <script>
+        // Get input and button elements
+        const enterCodeInput = document.getElementById('enterCode');
+        const joinButton = document.getElementById('joinButton');
+        const codeHelp = document.getElementById('codeHelp');
+
+        // Add an input event listener for validation
+        enterCodeInput.addEventListener('input', () => {
+            const enteredCode = enterCodeInput.value;
+            const isValid = /^\d{6}$/.test(enteredCode); // 6-digit integer validation
+            if (isValid) {
+                codeHelp.classList.add('d-none');
+                joinButton.disabled = false;
+            } else {
+                codeHelp.classList.remove('d-none');
+                joinButton.disabled = true;
+            }
+        });
+
+        // Form submission prevention for demonstration (can be removed or handled differently)
+        const joinForm = document.getElementById('joinForm');
+        joinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Joining quiz with code: ' + enterCodeInput.value);
+        });
+    </script>
+</body>
+</html>

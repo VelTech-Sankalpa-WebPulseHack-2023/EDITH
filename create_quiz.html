@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Quiz Questions</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <label for="question">Question:</label>
+                <input type="text" id="question" name="question" required>
+            </div>
+
+            <div class="options">
+                <label for="option1">Option 1:</label>
+                <input type="text" id="option1" name="option1" required>
+                <input type="radio" name="correctOption" value="1"> Correct
+                <br>
+
+                <label for="option2">Option 2:</label>
+                <input type="text" id="option2" name="option2" required>
+                <input type="radio" name="correctOption" value="2"> Correct
+                <br>
+
+                <label for="option3">Option 3:</label>
+                <input type="text" id="option3" name="option3" required>
+                <input type="radio" name="correctOption" value="3"> Correct
+                <br>
+
+                <label for="option4">Option 4:</label>
+                <input type="text" id="option4" name="option4" required>
+                <input type="radio" name="correctOption" value="4"> Correct
+            </div>
+
+            <button type="button" id="add-question">Add Question</button>
+            <button type="submit" id="submit-button">Submit</button>
+        </form>
+        
+        <h2>Random 6-Digit Code for Participants:</h2>
+        <button id="generate-code">Generate Code</button>
+        <p id="participant-code"></p>
+    </div>
+
+    <script>
+        const quizForm = document.getElementById('quiz-form');
+        const generateCodeButton = document.getElementById('generate-code');
+        const participantCode = document.getElementById('participant-code');
+
+        // Random code generation function
+        function generateRandomCode() {
+            return Math.floor(100000 + Math.random() * 900000);
+        }
+        generateCodeButton.addEventListener('click', function () {
+            const code = generateRandomCode();
+            participantCode.innerText = `Your 6-Digit Code: ${code}`;
+        });
+        document.getElementById('add-question').addEventListener('click', function () {
+            const question = document.getElementById('question').value;
+            const options = [
+                { option: document.getElementById('option1').value, correct: document.getElementById('option1-correct').checked },
+                { option: document.getElementById('option2').value, correct: document.getElementById('option2-correct').checked },
+                { option: document.getElementById('option3').value, correct: document.getElementById('option3-correct').checked },
+                { option: document.getElementById('option4').value, correct: document.getElementById('option4-correct').checked }
+            ];
+
+            console.log('Question:', question);
+            console.log('Options:', options);
+
+            // Reset the form
+            quizForm.reset();
+        });
+    </script>
+</body>
+</html>
+s

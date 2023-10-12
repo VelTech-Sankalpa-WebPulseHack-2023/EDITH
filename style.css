@@ -1,0 +1,87 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Hide horizontal scrollbar caused by animation */
+  }
+  
+  .zoom-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoom-in 10s ease forwards;
+  }
+  
+  #logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom-out 20s ease forwards 10s; /* Start the zoom-out animation after 4s */
+  }  
+  @keyframes zoom-out {
+    from {
+      transform: scale(7);
+    }
+    to {
+      transform: scale(10); /* Adjust the final scale based on your preference */
+    }
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  
+  .logo-container {
+    margin-bottom: 20px;
+  }
+  
+  .signin-container {
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  button, a {
+    text-align: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #0066cc;
+  }
+  
+  a:hover {
+    color: #004466;
+  }
+  

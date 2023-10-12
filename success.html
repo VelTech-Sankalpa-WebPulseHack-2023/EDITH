@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://wallpaperaccess.com/full/2384080.jpg');
+            background-size: cover;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">online quiz</div>
+        </div>
+        <div class="success-message">
+            Successfully created account. <a href="sign_in.html">sign in page</a>...
+        </div>
+    </div>
+    <script>
+        // Redirect to the sign-in page after a delay
+        setTimeout(function() {
+            window.location.href = "sign_in.html"; // Redirect to the sign-in page
+        }, 3000); // 3000 milliseconds (3 seconds)
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    
+    .opening-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      background-color: #000; 
+    }
+    
+    #logo {
+      width: 100px; 
+      height: 100px; 
+      animation: zoom-in 3s ease forwards;
+    }
+    
+    @keyframes zoom-in {
+      from {
+        transform: scale(2); 
+      }
+      to {
+        transform: scale(10);
+      }
+    }
+  
+    body {
+      opacity: 0;
+      transition: opacity 2s ease-in;
+    }
+    
+    body.loaded {
+      opacity: 1;
+    }
+
+    .enter-button-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://wallpaperaccess.com/full/2384080.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .enter-button {
+      padding: 15px 30px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="opening-container">
+    <img src="C:\Users\ADMIN\Pictures\quiz.png" alt="Logo" id="logo">
+  </div>
+
+  <div class="enter-button-container">
+    <h2>Please click here for login</h2>
+    <a href="sign_in.html" class="btn btn-primary enter-button">Enter</a>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      document.body.classList.add('loaded');
+      setTimeout(function() {
+        document.querySelector('.opening-container').style.display = 'none';
+        document.querySelector('.signin-page').style.display = 'flex';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create New Account</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://wallpaperaccess.com/full/2384080.jpg');
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 48px;
+            color: #fff; 
+            margin: 0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 20px;
+        }
+        .create-account-form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.733); 
+            text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            color: #0f0e0e;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .create-account-form h2 {
+            margin-top: 0;
+        }
+        .create-account-form input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 100%;
+        }
+        .create-account-form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .create-account-form input[type="submit"]:hover {
+            background-color: #555;
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">online quiz</div>
+        </div>
+        <form class="was-validated" id="create-account-form" action="success.html" method="POST" onsubmit="showSuccessMessage(event)">
+            <div class="create-account-form">
+                <h2>Create New Account</h2>
+                <div class="mb mt">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="mb">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[^A-Za-z0-9]).{8,}$">
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field (password must contain at least 8 characters and [A-Z], [a-z], [0-9], and one symbol)</div>
+                    <input type="checkbox" onclick="togglePasswordVisibility()">Show Password
+                </div>            
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+    <script>
+        function showSuccessMessage(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Redirect to the success page after a delay
+            setTimeout(function() {
+                window.location.href = "success.html"; // Redirect to the success page
+            }, 3000); 
+        }
+    </script>
+</body>
+</html>
